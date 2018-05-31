@@ -22,7 +22,7 @@ int main(int argc, char **argv)
     int tid = omp_get_thread_num();
     double starttime = omp_get_wtime();
 
-    #pragma omp for reduction(+:numOutside)
+    #pragma omp for reduction(+:numOutside) nowait
     for(int i = 0; i < nx; i++)
     {
         //Can compute r_c here, no need to do it every time in the j loop
